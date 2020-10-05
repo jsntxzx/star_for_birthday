@@ -5,7 +5,8 @@ function App() {
     cameraZ: 140,
     background: 0x00001a,
     numCircles: 40,
-    numPointsPerCircle: 1000 };
+    numPointsPerCircle: 1000
+  };
 
 
   let renderer, scene, camera, cameraCtrl, startTime;
@@ -87,7 +88,8 @@ function App() {
         uMouse: { value: mouse },
         uTexture: { value: new THREE.TextureLoader().load('https://klevron.github.io/codepen/misc/star.png') },
         uRCoef: { value: 7 },
-        uACoef: { value: 2 * Math.PI / conf.numPointsPerCircle } },
+        uACoef: { value: 2 * Math.PI / conf.numPointsPerCircle }
+      },
 
       vertexShader: `
       uniform float uTime;
@@ -138,7 +140,8 @@ function App() {
     `,
       blending: THREE.AdditiveBlending,
       depthTest: false,
-      transparent: true });
+      transparent: true
+    });
 
 
     points = new THREE.Points(geometry, material);
@@ -183,6 +186,7 @@ function App() {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
   }
+
 }
 
 App();
