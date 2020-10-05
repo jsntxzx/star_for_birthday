@@ -86,7 +86,7 @@ function App() {
       uniforms: {
         uTime: { value: 0 },
         uMouse: { value: mouse },
-        uTexture: { value: new THREE.TextureLoader().load('https://klevron.github.io/codepen/misc/star.png') },
+        uTexture: { value: new THREE.TextureLoader().load('http://qhqk758m1.hn-bkt.clouddn.com/star.png') },
         uRCoef: { value: 7 },
         uACoef: { value: 2 * Math.PI / conf.numPointsPerCircle }
       },
