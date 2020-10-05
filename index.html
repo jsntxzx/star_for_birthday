@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <audio src="music/theme_song.mp3" id="music" loop autoplay muted></audio>
     <canvas id="canvas"></canvas>
 
 
@@ -20,27 +19,20 @@
     <script src='js/chroma.min.js'></script>
     <script src="js/index.js"></script>
 
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
-    // http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
-    // 通过config接口注入权限验证配置后, 在 ready 中 play 一下 audio
-    function autoPlay() {
-        wx.config({
-            // 配置信息, 即使不正确也能使用 wx.ready
-            debug: false,
-            appId: '',
-            timestamp: 1,
-            nonceStr: '',
-            signature: '',
-            jsApiList: []
-        });
-        wx.ready(function() {
-            document.getElementById('music').play();
-        });
-    }
-
-    autoPlay();
-</script>
+        var audio = new Audio;
+        audio.preload = 'none';//设置none属性
+        audio.src = 'music/theme_song.mp3';
+        document.getElementsByTagName('canvas')[0].addEventListener('click', function () {
+            console.log("canvas clicked");
+            audio.play();
+        }, false)
+        if (typeof WeixinJSBridge === 'object') {
+            WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                audio.play();
+            });
+        } 
+    </script>
 </body>
 
 </html>
